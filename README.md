@@ -1,2 +1,11 @@
 # silver-goggles
-AI chat widget for business websites — answers customer questions 24/7, works in any language, installs with one line of code.
+# AI Chat Widget
+
+Smart chat assistant for any business website powered by Claude AI.
+
+## Features
+- Answers any customer question automatically
+- Works in any language
+- Customizable for any business in 5 minutes
+- Installs with one line of code
+
