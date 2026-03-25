@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Dental Care | Zubná ambulancia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --blue: #0057a8;
+      --blue-dark: #003f7a;
+      --blue-light: #e8f2fb;
+      --text: #1a1a2e;
+      --muted: #666;
+      --border: #e5e9f0;
+    }
+    body { font-family: 'Open Sans', sans-serif; color: var(--text); background: #fff; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav {
+      background: #fff; border-bottom: 1px solid var(--border);
+      padding: 0 40px; display: flex; align-items: center; justify-content: space-between;
+      height: 70px; position: sticky; top: 0; z-index: 100;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo-icon {
+      width: 38px; height: 38px; background: var(--blue); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-icon svg { width: 22px; height: 22px; fill: white; }
+    .nav-logo-text { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: var(--blue); line-height: 1.2; }
+    .nav-logo-text span { display: block; font-weight: 400; font-size: 11px; color: var(--muted); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: 13.5px; font-weight: 500; color: var(--muted); transition: color .15s; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-btn {
+      background: var(--blue); color: white; padding: 10px 22px; border-radius: 6px;
+      font-size: 13.5px; font-weight: 600; font-family: 'Montserrat', sans-serif;
+      transition: background .15s;
+    }
+    .nav-btn:hover { background: var(--blue-dark); }
+    .nav-phone { font-size: 14px; font-weight: 600; color: var(--blue); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
+      padding: 80px 40px; display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; min-height: 420px;
+    }
+    .hero-content { max-width: 560px; }
+    .hero-tag {
+      display: inline-block; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);
+      font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 20px;
+      margin-bottom: 20px; letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 700;
+      color: white; line-height: 1.2; margin-bottom: 16px;
+    }
+    .hero h1 span { color: #7ec8f5; }
+    .hero p { font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 32px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-white {
+      background: white; color: var(--blue); padding: 13px 28px; border-radius: 8px;
+      font-weight: 700; font-size: 14px; font-family: 'Montserrat', sans-serif;
+      transition: transform .15s;
+    }
+    .btn-white:hover { transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: white; padding: 13px 28px; border-radius: 8px;
+      font-weight: 600; font-size: 14px; border: 2px solid rgba(255,255,255,0.5);
+      font-family: 'Montserrat', sans-serif; transition: border-color .15s;
+    }
+    .btn-outline:hover { border-color: white; }
+    .hero-stats {
+      display: flex; flex-direction: column; gap: 16px; flex-shrink: 0;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px; padding: 20px 28px; text-align: center; min-width: 160px;
+    }
+    .stat-num { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 700; color: white; }
+    .stat-label { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 4px; }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--blue-light); padding: 18px 40px;
+      display: flex; align-items: center; justify-content: center; gap: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .trust-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); font-weight: 500; }
+    .trust-icon { width: 20px; height: 20px; fill: var(--blue); flex-shrink: 0; }
+
+    /* SERVICES */
+    .section { padding: 72px 40px; }
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .section-tag { font-size: 12px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+    .section-title { font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+    .section-sub { font-size: 15px; color: var(--muted); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+    .service-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 12px;
+      padding: 28px 24px; transition: box-shadow .2s, transform .2s;
+    }
+    .service-card:hover { box-shadow: 0 8px 32px rgba(0,87,168,0.1); transform: translateY(-3px); }
+    .service-icon {
+      width: 48px; height: 48px; background: var(--blue-light); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+    }
+    .service-icon svg { width: 24px; height: 24px; fill: var(--blue); }
+    .service-name { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .service-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* BRANCHES */
+    .branches { background: #f8fafc; padding: 72px 40px; }
+    .branches-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; max-width: 1100px; margin: 0 auto; }
+    .branch-card {
+      background: white; border: 1px solid var(--border); border-radius: 12px;
+      padding: 22px 20px; display: flex; gap: 14px; align-items: flex-start;
+    }
+    .branch-dot { width: 10px; height: 10px; background: var(--blue); border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+    .branch-city { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .branch-addr { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .branch-tel { font-size: 12px; color: var(--blue); font-weight: 600; }
+
+    /* INSURANCE */
+    .insurance { padding: 48px 40px; border-top: 1px solid var(--border); text-align: center; }
+    .insurance p { font-size: 14px; color: var(--muted); margin-bottom: 24px; font-weight: 500; }
+    .insurance-logos { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .ins-logo {
+      background: var(--blue-light); border: 1px solid var(--border); border-radius: 10px;
+      padding: 14px 28px; font-family: 'Montserrat', sans-serif; font-size: 15px;
+      font-weight: 700; color: var(--blue);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--blue-dark); color: rgba(255,255,255,0.7);
+      padding: 32px 40px; display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    footer .logo { font-family: 'Montserrat', sans-serif; font-weight: 700; color: white; font-size: 15px; }
+    footer p { font-size: 13px; }
+    footer a { color: rgba(255,255,255,0.7); font-size: 13px; margin-left: 20px; }
+    footer a:hover { color: white; }
+
+    @media(max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 50px 20px; flex-direction: column; }
+      .hero-stats { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+      .stat-card { min-width: 130px; }
+      .trust-bar { gap: 20px; flex-wrap: wrap; padding: 16px 20px; }
+      .section { padding: 48px 20px; }
+      .branches { padding: 48px 20px; }
+      footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+      footer a { margin: 0 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4.5 6 8c0 2 .8 3.8 2 5l4 5 4-5c1.2-1.2 2-3 2-5 0-3.5-2.5-6-6-6zm0 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+    </div>
+    <div class="nav-logo-text">Family Dental Care <span>Zubná ambulancia</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#">O nás</a>
+    <a href="#">Služby</a>
+    <a href="#">Pobočky</a>
+    <a href="#">Cenník</a>
+    <a href="#">Blog</a>
+    <span class="nav-phone">+421 911 061 313</span>
+    <a href="#" class="nav-btn">Objednajte sa</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Profesionálna starostlivosť</div>
+    <h1>Váš zdravý <span>úsmev</span> je naša priorita</h1>
+    <p>Moderná stomatológia pre celú rodinu. Skúsení lekári, najnovšie technológie a príjemné prostredie na 9 pobočkách v okolí Bratislavy.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-white">Objednajte sa online</a>
+      <a href="#" class="btn-outline">Zistiť viac</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-card">
+      <div class="stat-num">65 000+</div>
+      <div class="stat-label">spokojných pacientov</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">9</div>
+      <div class="stat-label">moderných pobočiek</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">100+</div>
+      <div class="stat-label">odborníkov</div>
+    </div>
+  </div>
+</div>
+
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4z"/></svg>
+    Zmluvný lekár VŠZP, Dôvera, Union
+  </div>
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+    Moderné technológie a vybavenie
+  </div>
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+    Tím 100+ odborníkov
+  </div>
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+    Rodinná atmosféra
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-header">
+    <div class="section-tag">Naše služby</div>
+    <div class="section-title">Komplexná stomatologická starostlivosť</div>
+    <div class="section-sub">Ponúkame široké spektrum zubných služieb pre celú rodinu — od preventívnych prehliadok až po komplexné estetické ošetrenia.</div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4.5 6 8c0 2 .8 3.8 2 5l4 5 4-5c1.2-1.2 2-3 2-5 0-3.5-2.5-6-6-6z"/></svg></div>
+      <div class="service-name">Dentálna hygiena</div>
+      <div class="service-desc">Profesionálne čistenie zubov a prevencia zubných ochorení pre celú rodinu.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
+      <div class="service-name">Invisalign</div>
+      <div class="service-desc">Neviditeľný zubný strojček s 3-ročnou garanciou. Bezplatná konzultácia.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4z"/></svg></div>
+      <div class="service-name">Bielenie zubov</div>
+      <div class="service-desc">Systém Boutique Whitening — šetrný k zubnej sklovine, ocenený produkt.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
+      <div class="service-name">Implantológia</div>
+      <div class="service-desc">Moderné zubné implantáty — trvalé riešenie chýbajúcich zubov.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3z"/></svg></div>
+      <div class="service-name">Detská stomatológia</div>
+      <div class="service-desc">Príjemné prostredie a empatický prístup pre najmenších pacientov.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></div>
+      <div class="service-name">Digital Smile Design</div>
+      <div class="service-desc">Virtuálna simulácia vášho nového úsmevu pred začatím liečby.</div>
+    </div>
+  </div>
+</section>
+
+<section class="branches">
+  <div class="section-header">
+    <div class="section-tag">Naše pobočky</div>
+    <div class="section-title">9 pobočiek v okolí Bratislavy</div>
+    <div class="section-sub">Nájdite pobočku najbližšie k vám.</div>
+  </div>
+  <div class="branches-grid">
+    <div class="branch-card"><div class="branch-dot"></div><div><div class="branch-city">Bratislava — Štúrova</div><div class="branch-addr">Štúrova 12, 811 02</div><div class="branch-tel">+421 2 5296 4268</div></div></div>
+    <div class="branch-card"><div class="branch-dot"></div><div><div class="branch-city">Bratislava — Kramáre</div><div class="branch-addr">Stromová 7, 831 01</div><div class="branch-tel">+421 911 131 366</div></div></div>
+    <div class="branch-card"><div class="branch-dot"></div><div><div class="branch-city">Bratislava — Petržalka</div><div class="branch-addr">Panónska cesta 8, 851 01</div><div class="branch-tel">+421 910 211 313</div></div></div>
+    <div class="branch-card"><div class="branch-dot"></div><div><div class="branch-city">Bratislava — Dúbravka</div><div class="branch-addr">P. Horova 16, 841 08</div><div class="branch-tel">+421 910 431 313</div></div></div>
+    <div class="branch-card"><div class="branch-dot"></div><div><div class="branch-city">Dunajská Lužná</div><div class="branch-addr">Lipnická 3153, 900 42</div><div class="branch-tel">+421 949 752 155</div></div></div>
+    <div class="branch-card"><div class="branch-dot"></div><div><div class="branch-city">Pezinok</div><div class="branch-addr">Hollého 2, 902 01</div><div class="branch-tel">+421 903 613 113</div></div></div>
+    <div class="branch-card"><div class="branch-dot"></div><div><div class="branch-city">Bernolákovo</div><div class="branch-addr">Viničná 5, 900 27</div><div class="branch-tel">+421 903 616 313</div></div></div>
+    <div class="branch-card"><div class="branch-dot"></div><div><div class="branch-city">Malacky</div><div class="branch-addr">Legionárska 5265, 901 01</div><div class="branch-tel">+421 904 161 313</div></div></div>
+    <div class="branch-card"><div class="branch-dot"></div><div><div class="branch-city">Stupava</div><div class="branch-addr">Mlynská 1, 900 31</div><div class="branch-tel">+421 903 779 692</div></div></div>
+  </div>
+</section>
+
+<div class="insurance">
+  <p>Zmluvný lekár zdravotných poisťovní</p>
+  <div class="insurance-logos">
+    <div class="ins-logo">VŠZP</div>
+    <div class="ins-logo">Dôvera</div>
+    <div class="ins-logo">Union</div>
+  </div>
+</div>
+
+<footer>
+  <div class="logo">Family Dental Care</div>
+  <p>© 2025 Family Dental Care · office@familydentalcare.sk · +421 911 061 313</p>
+  <div>
+    <a href="#">O nás</a>
+    <a href="#">Služby</a>
+    <a href="#">Pobočky</a>
+    <a href="#">Cenník</a>
+  </div>
+</footer>
+
+<script src="widget-ai.js"></script>
+</body>
+</html>
